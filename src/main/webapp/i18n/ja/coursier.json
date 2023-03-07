@@ -1,0 +1,30 @@
+{
+  "dmGenieLogicielApp": {
+    "coursier": {
+      "home": {
+        "title": "Coursiers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Coursier を追加",
+        "createOrEditLabel": "Coursierを追加または編集",
+        "notFound": "No Coursiers found"
+      },
+      "created": "A new Coursier is created with identifier {{ param }}",
+      "updated": "A Coursier is updated with identifier {{ param }}",
+      "deleted": "A Coursier is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Coursier {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Coursier"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "email": "Email",
+      "vehicleType": "Vehicle Type",
+      "activated": "Activated",
+      "commandes": "Commandes"
+    }
+  }
+}

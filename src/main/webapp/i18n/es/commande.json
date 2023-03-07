@@ -1,0 +1,33 @@
+{
+  "dmGenieLogicielApp": {
+    "commande": {
+      "home": {
+        "title": "Commandes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Commande",
+        "createOrEditLabel": "Crear o editar Commande",
+        "notFound": "Ningún Commandes encontrado"
+      },
+      "created": "Un nuevo Commande ha sido creado con el identificador {{ param }}",
+      "updated": "Un Commande ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Commande ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Commande {{ id }}?"
+      },
+      "detail": {
+        "title": "Commande"
+      },
+      "id": "ID",
+      "deliveryAddress": "Delivery Address",
+      "deliveryLatitude": "Delivery Latitude",
+      "deliveryLongitude": "Delivery Longitude",
+      "deliveryDistance": "Delivery Distance",
+      "deliveryFees": "Delivery Fees",
+      "status": "Status",
+      "coursier": "Coursier",
+      "client": "Client",
+      "restaurant": "Restaurant",
+      "produits": "Produits"
+    }
+  }
+}
