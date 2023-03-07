@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="produit">
+      <h2 data-cy="produitDetailsHeading"><span jhiTranslate="dmGenieLogicielApp.produit.detail.title">Produit</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ produit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.produit.name">Name</span></dt>
+        <dd>
+          <span>{{ produit.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.produit.description">Description</span></dt>
+        <dd>
+          <span>{{ produit.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.produit.price">Price</span></dt>
+        <dd>
+          <span>{{ produit.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.produit.photo">Photo</span></dt>
+        <dd>
+          <div *ngIf="produit.photo">
+            <a (click)="openFile(produit.photo, produit.photoContentType)">
+              <img [src]="'data:' + produit.photoContentType + ';base64,' + produit.photo" style="max-width: 100%" alt="produit image" />
+            </a>
+            {{ produit.photoContentType }}, {{ byteSize(produit.photo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.produit.restaurant">Restaurant</span></dt>
+        <dd>
+          <div *ngIf="produit.restaurant">
+            <a [routerLink]="['/restaurant', produit.restaurant.id, 'view']">{{ produit.restaurant.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/produit', produit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

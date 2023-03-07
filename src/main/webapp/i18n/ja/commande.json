@@ -1,0 +1,33 @@
+{
+  "dmGenieLogicielApp": {
+    "commande": {
+      "home": {
+        "title": "Commandes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Commande を追加",
+        "createOrEditLabel": "Commandeを追加または編集",
+        "notFound": "No Commandes found"
+      },
+      "created": "A new Commande is created with identifier {{ param }}",
+      "updated": "A Commande is updated with identifier {{ param }}",
+      "deleted": "A Commande is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Commande {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Commande"
+      },
+      "id": "ID",
+      "deliveryAddress": "Delivery Address",
+      "deliveryLatitude": "Delivery Latitude",
+      "deliveryLongitude": "Delivery Longitude",
+      "deliveryDistance": "Delivery Distance",
+      "deliveryFees": "Delivery Fees",
+      "status": "Status",
+      "coursier": "Coursier",
+      "client": "Client",
+      "restaurant": "Restaurant",
+      "produits": "Produits"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "dmGenieLogicielApp": {
+    "coursier": {
+      "home": {
+        "title": "Coursiers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Coursier",
+        "createOrEditLabel": "Create or edit a Coursier",
+        "notFound": "No Coursiers found"
+      },
+      "created": "A new Coursier is created with identifier {{ param }}",
+      "updated": "A Coursier is updated with identifier {{ param }}",
+      "deleted": "A Coursier is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Coursier {{ id }}?"
+      },
+      "detail": {
+        "title": "Coursier"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "email": "Email",
+      "vehicleType": "Vehicle Type",
+      "activated": "Activated",
+      "commandes": "Commandes"
+    }
+  }
+}
