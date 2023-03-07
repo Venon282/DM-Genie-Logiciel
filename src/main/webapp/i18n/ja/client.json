@@ -1,0 +1,30 @@
+{
+  "dmGenieLogicielApp": {
+    "client": {
+      "home": {
+        "title": "Clients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Client を追加",
+        "createOrEditLabel": "Clientを追加または編集",
+        "notFound": "No Clients found"
+      },
+      "created": "A new Client is created with identifier {{ param }}",
+      "updated": "A Client is updated with identifier {{ param }}",
+      "deleted": "A Client is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Client {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Client"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "activated": "Activated",
+      "commandes": "Commandes"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<div>
+  <h2 id="page-heading" data-cy="CoursierHeading">
+    <span jhiTranslate="dmGenieLogicielApp.coursier.home.title">Coursiers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="dmGenieLogicielApp.coursier.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-coursier"
+        [routerLink]="['/coursier/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="dmGenieLogicielApp.coursier.home.createLabel"> Create a new Coursier </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="coursiers?.length === 0">
+    <span jhiTranslate="dmGenieLogicielApp.coursier.home.notFound">No Coursiers found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="coursiers && coursiers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="dmGenieLogicielApp.coursier.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="dmGenieLogicielApp.coursier.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phone">
+            <div class="d-flex">
+              <span jhiTranslate="dmGenieLogicielApp.coursier.phone">Phone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="dmGenieLogicielApp.coursier.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="vehicleType">
+            <div class="d-flex">
+              <span jhiTranslate="dmGenieLogicielApp.coursier.vehicleType">Vehicle Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activated">
+            <div class="d-flex">
+              <span jhiTranslate="dmGenieLogicielApp.coursier.activated">Activated</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let coursier of coursiers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/coursier', coursier.id, 'view']">{{ coursier.id }}</a>
+          </td>
+          <td>{{ coursier.firstName }}</td>
+          <td>{{ coursier.lastName }}</td>
+          <td>{{ coursier.phone }}</td>
+          <td>{{ coursier.email }}</td>
+          <td>{{ coursier.vehicleType }}</td>
+          <td>{{ coursier.activated }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/coursier', coursier.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/coursier', coursier.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(coursier)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "dmGenieLogicielApp": {
+    "restaurant": {
+      "home": {
+        "title": "Restaurants",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Restaurant を追加",
+        "createOrEditLabel": "Restaurantを追加または編集",
+        "notFound": "No Restaurants found"
+      },
+      "created": "A new Restaurant is created with identifier {{ param }}",
+      "updated": "A Restaurant is updated with identifier {{ param }}",
+      "deleted": "A Restaurant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Restaurant {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Restaurant"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "description": "Description",
+      "language": "Language",
+      "activated": "Activated",
+      "produits": "Produits",
+      "commandes": "Commandes"
+    }
+  }
+}

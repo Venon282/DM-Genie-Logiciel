@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="restaurant">
+      <h2 data-cy="restaurantDetailsHeading"><span jhiTranslate="dmGenieLogicielApp.restaurant.detail.title">Restaurant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ restaurant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.name">Name</span></dt>
+        <dd>
+          <span>{{ restaurant.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.address">Address</span></dt>
+        <dd>
+          <span>{{ restaurant.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.phone">Phone</span></dt>
+        <dd>
+          <span>{{ restaurant.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.email">Email</span></dt>
+        <dd>
+          <span>{{ restaurant.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.description">Description</span></dt>
+        <dd>
+          <span>{{ restaurant.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.language">Language</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'dmGenieLogicielApp.Language.' + restaurant.language }}">{{ restaurant.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.restaurant.activated">Activated</span></dt>
+        <dd>
+          <span>{{ restaurant.activated }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/restaurant', restaurant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

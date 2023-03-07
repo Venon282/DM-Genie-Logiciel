@@ -1,0 +1,285 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-commande-heading" data-cy="CommandeCreateUpdateHeading" jhiTranslate="dmGenieLogicielApp.commande.home.createOrEditLabel">
+        Create or edit a Commande
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.deliveryAddress" for="field_deliveryAddress"
+            >Delivery Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="deliveryAddress"
+            id="field_deliveryAddress"
+            data-cy="deliveryAddress"
+            formControlName="deliveryAddress"
+          />
+          <div
+            *ngIf="
+              editForm.get('deliveryAddress')!.invalid &&
+              (editForm.get('deliveryAddress')!.dirty || editForm.get('deliveryAddress')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryAddress')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryAddress')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 2 }"
+            >
+              This field is required to be at least 2 characters.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryAddress')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.deliveryLatitude" for="field_deliveryLatitude"
+            >Delivery Latitude</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="deliveryLatitude"
+            id="field_deliveryLatitude"
+            data-cy="deliveryLatitude"
+            formControlName="deliveryLatitude"
+          />
+          <div
+            *ngIf="
+              editForm.get('deliveryLatitude')!.invalid &&
+              (editForm.get('deliveryLatitude')!.dirty || editForm.get('deliveryLatitude')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryLatitude')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('deliveryLatitude')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.deliveryLongitude" for="field_deliveryLongitude"
+            >Delivery Longitude</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="deliveryLongitude"
+            id="field_deliveryLongitude"
+            data-cy="deliveryLongitude"
+            formControlName="deliveryLongitude"
+          />
+          <div
+            *ngIf="
+              editForm.get('deliveryLongitude')!.invalid &&
+              (editForm.get('deliveryLongitude')!.dirty || editForm.get('deliveryLongitude')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryLongitude')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('deliveryLongitude')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.deliveryDistance" for="field_deliveryDistance"
+            >Delivery Distance</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="deliveryDistance"
+            id="field_deliveryDistance"
+            data-cy="deliveryDistance"
+            formControlName="deliveryDistance"
+          />
+          <div
+            *ngIf="
+              editForm.get('deliveryDistance')!.invalid &&
+              (editForm.get('deliveryDistance')!.dirty || editForm.get('deliveryDistance')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryDistance')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('deliveryDistance')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.deliveryFees" for="field_deliveryFees">Delivery Fees</label>
+          <input
+            type="number"
+            class="form-control"
+            name="deliveryFees"
+            id="field_deliveryFees"
+            data-cy="deliveryFees"
+            formControlName="deliveryFees"
+          />
+          <div
+            *ngIf="editForm.get('deliveryFees')!.invalid && (editForm.get('deliveryFees')!.dirty || editForm.get('deliveryFees')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('deliveryFees')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('deliveryFees')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.coursier" for="field_coursier">Coursier</label>
+          <select
+            class="form-control"
+            id="field_coursier"
+            data-cy="coursier"
+            name="coursier"
+            formControlName="coursier"
+            [compareWith]="compareCoursier"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="coursierOption" *ngFor="let coursierOption of coursiersCollection">{{ coursierOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.client" for="field_client">Client</label>
+          <select
+            class="form-control"
+            id="field_client"
+            data-cy="client"
+            name="client"
+            formControlName="client"
+            [compareWith]="compareClient"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="clientOption" *ngFor="let clientOption of clientsSharedCollection">{{ clientOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dmGenieLogicielApp.commande.restaurant" for="field_restaurant">Restaurant</label>
+          <select
+            class="form-control"
+            id="field_restaurant"
+            data-cy="restaurant"
+            name="restaurant"
+            formControlName="restaurant"
+            [compareWith]="compareRestaurant"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="restaurantOption" *ngFor="let restaurantOption of restaurantsSharedCollection">
+              {{ restaurantOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="dmGenieLogicielApp.commande.produits" for="field_produits">Produits</label>
+          <select
+            class="form-control"
+            id="field_produits"
+            data-cy="produits"
+            multiple
+            name="produits"
+            formControlName="produits"
+            [compareWith]="compareProduit"
+          >
+            <option [ngValue]="produitOption" *ngFor="let produitOption of produitsSharedCollection">{{ produitOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

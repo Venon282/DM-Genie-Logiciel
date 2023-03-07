@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commande">
+      <h2 data-cy="commandeDetailsHeading"><span jhiTranslate="dmGenieLogicielApp.commande.detail.title">Commande</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ commande.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.deliveryAddress">Delivery Address</span></dt>
+        <dd>
+          <span>{{ commande.deliveryAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.deliveryLatitude">Delivery Latitude</span></dt>
+        <dd>
+          <span>{{ commande.deliveryLatitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.deliveryLongitude">Delivery Longitude</span></dt>
+        <dd>
+          <span>{{ commande.deliveryLongitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.deliveryDistance">Delivery Distance</span></dt>
+        <dd>
+          <span>{{ commande.deliveryDistance }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.deliveryFees">Delivery Fees</span></dt>
+        <dd>
+          <span>{{ commande.deliveryFees }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.status">Status</span></dt>
+        <dd>
+          <span>{{ commande.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.coursier">Coursier</span></dt>
+        <dd>
+          <div *ngIf="commande.coursier">
+            <a [routerLink]="['/coursier', commande.coursier.id, 'view']">{{ commande.coursier.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.client">Client</span></dt>
+        <dd>
+          <div *ngIf="commande.client">
+            <a [routerLink]="['/client', commande.client.id, 'view']">{{ commande.client.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.restaurant">Restaurant</span></dt>
+        <dd>
+          <div *ngIf="commande.restaurant">
+            <a [routerLink]="['/restaurant', commande.restaurant.id, 'view']">{{ commande.restaurant.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.commande.produits">Produits</span></dt>
+        <dd>
+          <span *ngFor="let produits of commande.produits; let last = last">
+            <a [routerLink]="['/produit', produits.id, 'view']">{{ produits.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/commande', commande.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

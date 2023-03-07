@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="coursier">
+      <h2 data-cy="coursierDetailsHeading"><span jhiTranslate="dmGenieLogicielApp.coursier.detail.title">Coursier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ coursier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.coursier.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ coursier.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.coursier.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ coursier.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.coursier.phone">Phone</span></dt>
+        <dd>
+          <span>{{ coursier.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.coursier.email">Email</span></dt>
+        <dd>
+          <span>{{ coursier.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.coursier.vehicleType">Vehicle Type</span></dt>
+        <dd>
+          <span>{{ coursier.vehicleType }}</span>
+        </dd>
+        <dt><span jhiTranslate="dmGenieLogicielApp.coursier.activated">Activated</span></dt>
+        <dd>
+          <span>{{ coursier.activated }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/coursier', coursier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
