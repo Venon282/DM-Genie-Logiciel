@@ -1,0 +1,74 @@
+// définir une énumération pour les langues
+enum Language {
+  FRENCH, ENGLISH, SPANISH, JAPANESE
+}
+
+// entité Restaurant
+entity Restaurant {
+  name String minlength(2) maxlength(50) required,
+  address String minlength(2) maxlength(100) required,
+  phone String pattern(/^([+][1-9][0-9]|[0-9])$/) unique required,
+  email String pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/) unique required,
+  description String minlength(2) maxlength(2000) required,
+  language Language required,
+  activated Boolean required
+}
+
+// entité Client
+entity Client {
+  firstName String minlength(2) maxlength(50) required,
+  lastName String minlength(2) maxlength(50) required,
+  address String minlength(2) maxlength(100) required,
+  phone String pattern(/^([+][1-9][0-9]|[0-9])$/) unique required,
+  email String pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/) unique required,
+  activated Boolean required
+}
+
+// entité Coursier
+entity Coursier {
+  firstName String minlength(2) maxlength(50) required,
+  lastName String minlength(2) maxlength(50) required,
+  phone String pattern(/^([+][1-9][0-9]|[0-9])$/) unique required,
+  email String pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/) unique required,
+  vehicleType String maxlength(50) required,
+  activated Boolean required
+}
+
+// entité Commande
+entity Commande {
+  id Long unique required,
+  deliveryAddress String minlength(2) maxlength(100) required,
+  deliveryLatitude Float required,
+  deliveryLongitude Float required,
+  deliveryDistance Float required,
+  deliveryFees Float required,
+  status String required
+}
+
+// entité Produit
+entity Produit {
+  id Long unique required,
+  name String minlength(2) required,
+  description String minlength(2) required,
+  price Float min(0.01) required,
+  photo ImageBlob maxbytes(5000000)
+}
+
+relationship OneToMany {
+	Restaurant{produits} to Produit{restaurant} 
+}
+
+relationship ManyToOne {
+	Commande{client} to Client{commandes},
+    Commande{restaurant} to Restaurant{commandes} 
+}
+
+relationship OneToOne{
+	Commande{coursier} to Coursier{commandes}
+}
+
+relationship ManyToMany {
+	Commande{produits} to Produit{commandes}
+}
+
+paginate Restaurant, Produit with infinite-scroll
