@@ -31,7 +31,7 @@ def count_files(path, exclude=[], ext_exclude=['.png','.png','.csv','.p12','.pdf
                 else :
                     dico[ext]+=1
                 with open(path, 'r', encoding="UTF-8") as file:
-                    total +=len(file.read().split('\n'))
+                    total += len([line for line in file.read().split('\n') if line.strip() != ''])
     return total, dico
 
 ext_exclude=['.png','.png','.csv','.xml','.p12','.pdf','.ico','.gif']
